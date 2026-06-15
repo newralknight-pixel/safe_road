@@ -1,0 +1,1522 @@
+[
+  {
+    "id": "evt-20260609022503-1929",
+    "created_at": "2026-06-09T02:25:03+00:00",
+    "drone_id": "sim-drone-01",
+    "type": "roe_deer",
+    "label": "Roe deer",
+    "severity": "high",
+    "confidence": 0.88,
+    "latitude": 33.487002315614234,
+    "longitude": 126.53184764158792,
+    "road": "Coastal Highway",
+    "message": "Wild animal near road. Notify police and warn drivers to slow down.",
+    "detail": null,
+    "alert_targets": [
+      "police",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022535-2448",
+    "created_at": "2026-06-09T02:25:35+00:00",
+    "drone_id": "sim-drone-01",
+    "type": "trash",
+    "label": "Road trash",
+    "severity": "medium",
+    "confidence": 0.96,
+    "latitude": 37.74948561467033,
+    "longitude": 128.86573973894522,
+    "road": "Mountain Road 12",
+    "message": "Trash detected on road. Notify road manager and warn nearby drivers.",
+    "detail": null,
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022536-1415",
+    "created_at": "2026-06-09T02:25:36+00:00",
+    "drone_id": "sim-drone-01",
+    "type": "trash",
+    "label": "Road trash",
+    "severity": "medium",
+    "confidence": 0.9,
+    "latitude": 35.16936419248424,
+    "longitude": 129.0741022000064,
+    "road": "City Ring Road",
+    "message": "Trash detected on road. Notify road manager and warn nearby drivers.",
+    "detail": null,
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022537-9924",
+    "created_at": "2026-06-09T02:25:37+00:00",
+    "drone_id": "sim-drone-01",
+    "type": "roe_deer",
+    "label": "Roe deer",
+    "severity": "high",
+    "confidence": 0.88,
+    "latitude": 37.74826704732982,
+    "longitude": 128.8651626915961,
+    "road": "Mountain Road 12",
+    "message": "Wild animal near road. Notify police and warn drivers to slow down.",
+    "detail": null,
+    "alert_targets": [
+      "police",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022537-2881",
+    "created_at": "2026-06-09T02:25:37+00:00",
+    "drone_id": "sim-drone-01",
+    "type": "roe_deer",
+    "label": "Roe deer",
+    "severity": "high",
+    "confidence": 0.8,
+    "latitude": 37.55445333926932,
+    "longitude": 126.96524482316265,
+    "road": "Route 37",
+    "message": "Wild animal near road. Notify police and warn drivers to slow down.",
+    "detail": null,
+    "alert_targets": [
+      "police",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022538-1768",
+    "created_at": "2026-06-09T02:25:38+00:00",
+    "drone_id": "sim-drone-01",
+    "type": "trash",
+    "label": "Road trash",
+    "severity": "medium",
+    "confidence": 0.87,
+    "latitude": 37.73979308734088,
+    "longitude": 128.87564860186274,
+    "road": "Mountain Road 12",
+    "message": "Trash detected on road. Notify road manager and warn nearby drivers.",
+    "detail": null,
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022538-3578",
+    "created_at": "2026-06-09T02:25:38+00:00",
+    "drone_id": "sim-drone-01",
+    "type": "trash",
+    "label": "Road trash",
+    "severity": "medium",
+    "confidence": 0.85,
+    "latitude": 35.17699838978305,
+    "longitude": 129.08982309861545,
+    "road": "City Ring Road",
+    "message": "Trash detected on road. Notify road manager and warn nearby drivers.",
+    "detail": null,
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022539-6813",
+    "created_at": "2026-06-09T02:25:39+00:00",
+    "drone_id": "sim-drone-01",
+    "type": "road_crack",
+    "label": "Road crack",
+    "severity": "high",
+    "confidence": 0.92,
+    "latitude": 35.19142124142367,
+    "longitude": 129.08111255829712,
+    "road": "City Ring Road",
+    "message": "Road crack detected. Notify maintenance team and mark route as dangerous.",
+    "detail": null,
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022539-7844",
+    "created_at": "2026-06-09T02:25:39+00:00",
+    "drone_id": "sim-drone-01",
+    "type": "roe_deer",
+    "label": "Roe deer",
+    "severity": "high",
+    "confidence": 0.85,
+    "latitude": 37.745758288730414,
+    "longitude": 128.87662130532212,
+    "road": "Mountain Road 12",
+    "message": "Wild animal near road. Notify police and warn drivers to slow down.",
+    "detail": null,
+    "alert_targets": [
+      "police",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022540-4891",
+    "created_at": "2026-06-09T02:25:40+00:00",
+    "drone_id": "sim-drone-01",
+    "type": "trash",
+    "label": "Road trash",
+    "severity": "medium",
+    "confidence": 0.95,
+    "latitude": 35.19384768575703,
+    "longitude": 129.0666503786154,
+    "road": "City Ring Road",
+    "message": "Trash detected on road. Notify road manager and warn nearby drivers.",
+    "detail": null,
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022540-2815",
+    "created_at": "2026-06-09T02:25:40+00:00",
+    "drone_id": "sim-drone-01",
+    "type": "road_crack",
+    "label": "Road crack",
+    "severity": "high",
+    "confidence": 0.86,
+    "latitude": 35.19310483237791,
+    "longitude": 129.0665916763345,
+    "road": "City Ring Road",
+    "message": "Road crack detected. Notify maintenance team and mark route as dangerous.",
+    "detail": null,
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022541-4092",
+    "created_at": "2026-06-09T02:25:41+00:00",
+    "drone_id": "sim-drone-01",
+    "type": "trash",
+    "label": "Road trash",
+    "severity": "medium",
+    "confidence": 0.78,
+    "latitude": 35.1830074973738,
+    "longitude": 129.0893954333695,
+    "road": "City Ring Road",
+    "message": "Trash detected on road. Notify road manager and warn nearby drivers.",
+    "detail": null,
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022541-4575",
+    "created_at": "2026-06-09T02:25:41+00:00",
+    "drone_id": "sim-drone-01",
+    "type": "trash",
+    "label": "Road trash",
+    "severity": "medium",
+    "confidence": 0.98,
+    "latitude": 37.57152950820747,
+    "longitude": 126.98509620770984,
+    "road": "Route 37",
+    "message": "Trash detected on road. Notify road manager and warn nearby drivers.",
+    "detail": null,
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022541-4806",
+    "created_at": "2026-06-09T02:25:41+00:00",
+    "drone_id": "sim-drone-01",
+    "type": "trash",
+    "label": "Road trash",
+    "severity": "medium",
+    "confidence": 0.85,
+    "latitude": 35.19222066134288,
+    "longitude": 129.06943390921035,
+    "road": "City Ring Road",
+    "message": "Trash detected on road. Notify road manager and warn nearby drivers.",
+    "detail": null,
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022542-3819",
+    "created_at": "2026-06-09T02:25:42+00:00",
+    "drone_id": "sim-drone-01",
+    "type": "roe_deer",
+    "label": "Roe deer",
+    "severity": "high",
+    "confidence": 0.94,
+    "latitude": 37.75656005853462,
+    "longitude": 128.86209451755877,
+    "road": "Mountain Road 12",
+    "message": "Wild animal near road. Notify police and warn drivers to slow down.",
+    "detail": null,
+    "alert_targets": [
+      "police",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022542-5504",
+    "created_at": "2026-06-09T02:25:42+00:00",
+    "drone_id": "sim-drone-01",
+    "type": "roe_deer",
+    "label": "Roe deer",
+    "severity": "high",
+    "confidence": 0.93,
+    "latitude": 35.184060632512086,
+    "longitude": 129.06248252878623,
+    "road": "City Ring Road",
+    "message": "Wild animal near road. Notify police and warn drivers to slow down.",
+    "detail": null,
+    "alert_targets": [
+      "police",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022543-9579",
+    "created_at": "2026-06-09T02:25:43+00:00",
+    "drone_id": "sim-drone-01",
+    "type": "road_crack",
+    "label": "Road crack",
+    "severity": "high",
+    "confidence": 0.87,
+    "latitude": 35.16738174479111,
+    "longitude": 129.07166619062482,
+    "road": "City Ring Road",
+    "message": "Road crack detected. Notify maintenance team and mark route as dangerous.",
+    "detail": null,
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022543-7328",
+    "created_at": "2026-06-09T02:25:43+00:00",
+    "drone_id": "sim-drone-01",
+    "type": "road_crack",
+    "label": "Road crack",
+    "severity": "high",
+    "confidence": 0.92,
+    "latitude": 33.4962806963246,
+    "longitude": 126.53246735888155,
+    "road": "Coastal Highway",
+    "message": "Road crack detected. Notify maintenance team and mark route as dangerous.",
+    "detail": null,
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022554-7726",
+    "created_at": "2026-06-09T02:25:54+00:00",
+    "drone_id": "sim-drone-01",
+    "type": "trash",
+    "label": "Road trash",
+    "severity": "medium",
+    "confidence": 0.88,
+    "latitude": 37.56095901546832,
+    "longitude": 126.98226746982584,
+    "road": "Route 37",
+    "message": "Trash detected on road. Notify road manager and warn nearby drivers.",
+    "detail": null,
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022555-7338",
+    "created_at": "2026-06-09T02:25:55+00:00",
+    "drone_id": "sim-drone-01",
+    "type": "road_crack",
+    "label": "Road crack",
+    "severity": "high",
+    "confidence": 0.86,
+    "latitude": 37.554211095154415,
+    "longitude": 126.97964900090248,
+    "road": "Route 37",
+    "message": "Road crack detected. Notify maintenance team and mark route as dangerous.",
+    "detail": null,
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022555-1659",
+    "created_at": "2026-06-09T02:25:55+00:00",
+    "drone_id": "sim-drone-01",
+    "type": "road_crack",
+    "label": "Road crack",
+    "severity": "high",
+    "confidence": 0.92,
+    "latitude": 33.512856486219185,
+    "longitude": 126.53980347783781,
+    "road": "Coastal Highway",
+    "message": "Road crack detected. Notify maintenance team and mark route as dangerous.",
+    "detail": null,
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022556-2894",
+    "created_at": "2026-06-09T02:25:56+00:00",
+    "drone_id": "sim-drone-01",
+    "type": "roe_deer",
+    "label": "Roe deer",
+    "severity": "high",
+    "confidence": 0.85,
+    "latitude": 33.5038622606578,
+    "longitude": 126.52163117802391,
+    "road": "Coastal Highway",
+    "message": "Wild animal near road. Notify police and warn drivers to slow down.",
+    "detail": null,
+    "alert_targets": [
+      "police",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022556-8213",
+    "created_at": "2026-06-09T02:25:56+00:00",
+    "drone_id": "sim-drone-01",
+    "type": "road_crack",
+    "label": "Road crack",
+    "severity": "high",
+    "confidence": 0.94,
+    "latitude": 35.19022322108711,
+    "longitude": 129.08540706272439,
+    "road": "City Ring Road",
+    "message": "Road crack detected. Notify maintenance team and mark route as dangerous.",
+    "detail": null,
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022557-4886",
+    "created_at": "2026-06-09T02:25:57+00:00",
+    "drone_id": "sim-drone-01",
+    "type": "roe_deer",
+    "label": "Roe deer",
+    "severity": "high",
+    "confidence": 0.86,
+    "latitude": 37.55721091305732,
+    "longitude": 126.97369679036464,
+    "road": "Route 37",
+    "message": "Wild animal near road. Notify police and warn drivers to slow down.",
+    "detail": null,
+    "alert_targets": [
+      "police",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022658-7675",
+    "created_at": "2026-06-09T02:26:58+00:00",
+    "drone_id": "upload-drone-01",
+    "type": "road_crack",
+    "label": "Road crack",
+    "severity": "high",
+    "confidence": 0.95,
+    "latitude": 37.5665,
+    "longitude": 126.978,
+    "road": "Drone road image",
+    "message": "Road crack detected. Notify maintenance team and mark route as dangerous.",
+    "detail": "0 long edge patterns and 13 line segments found",
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022658-8301",
+    "created_at": "2026-06-09T02:26:58+00:00",
+    "drone_id": "upload-drone-01",
+    "type": "trash",
+    "label": "Road trash",
+    "severity": "medium",
+    "confidence": 0.9,
+    "latitude": 37.5665,
+    "longitude": 126.978,
+    "road": "Drone road image",
+    "message": "Trash detected on road. Notify road manager and warn nearby drivers.",
+    "detail": "10 colored object candidates found",
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022702-2795",
+    "created_at": "2026-06-09T02:27:02+00:00",
+    "drone_id": "upload-drone-01",
+    "type": "road_crack",
+    "label": "Road crack",
+    "severity": "high",
+    "confidence": 0.95,
+    "latitude": 37.5665,
+    "longitude": 126.978,
+    "road": "Drone road image",
+    "message": "Road crack detected. Notify maintenance team and mark route as dangerous.",
+    "detail": "0 long edge patterns and 13 line segments found",
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022702-5375",
+    "created_at": "2026-06-09T02:27:02+00:00",
+    "drone_id": "upload-drone-01",
+    "type": "trash",
+    "label": "Road trash",
+    "severity": "medium",
+    "confidence": 0.9,
+    "latitude": 37.5665,
+    "longitude": 126.978,
+    "road": "Drone road image",
+    "message": "Trash detected on road. Notify road manager and warn nearby drivers.",
+    "detail": "10 colored object candidates found",
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022703-7574",
+    "created_at": "2026-06-09T02:27:03+00:00",
+    "drone_id": "upload-drone-01",
+    "type": "road_crack",
+    "label": "Road crack",
+    "severity": "high",
+    "confidence": 0.95,
+    "latitude": 37.5665,
+    "longitude": 126.978,
+    "road": "Drone road image",
+    "message": "Road crack detected. Notify maintenance team and mark route as dangerous.",
+    "detail": "0 long edge patterns and 13 line segments found",
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022703-4748",
+    "created_at": "2026-06-09T02:27:03+00:00",
+    "drone_id": "upload-drone-01",
+    "type": "trash",
+    "label": "Road trash",
+    "severity": "medium",
+    "confidence": 0.9,
+    "latitude": 37.5665,
+    "longitude": 126.978,
+    "road": "Drone road image",
+    "message": "Trash detected on road. Notify road manager and warn nearby drivers.",
+    "detail": "10 colored object candidates found",
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022703-8811",
+    "created_at": "2026-06-09T02:27:03+00:00",
+    "drone_id": "upload-drone-01",
+    "type": "road_crack",
+    "label": "Road crack",
+    "severity": "high",
+    "confidence": 0.95,
+    "latitude": 37.5665,
+    "longitude": 126.978,
+    "road": "Drone road image",
+    "message": "Road crack detected. Notify maintenance team and mark route as dangerous.",
+    "detail": "0 long edge patterns and 13 line segments found",
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022703-1458",
+    "created_at": "2026-06-09T02:27:03+00:00",
+    "drone_id": "upload-drone-01",
+    "type": "trash",
+    "label": "Road trash",
+    "severity": "medium",
+    "confidence": 0.9,
+    "latitude": 37.5665,
+    "longitude": 126.978,
+    "road": "Drone road image",
+    "message": "Trash detected on road. Notify road manager and warn nearby drivers.",
+    "detail": "10 colored object candidates found",
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022703-7126",
+    "created_at": "2026-06-09T02:27:03+00:00",
+    "drone_id": "upload-drone-01",
+    "type": "road_crack",
+    "label": "Road crack",
+    "severity": "high",
+    "confidence": 0.95,
+    "latitude": 37.5665,
+    "longitude": 126.978,
+    "road": "Drone road image",
+    "message": "Road crack detected. Notify maintenance team and mark route as dangerous.",
+    "detail": "0 long edge patterns and 13 line segments found",
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022703-4036",
+    "created_at": "2026-06-09T02:27:03+00:00",
+    "drone_id": "upload-drone-01",
+    "type": "trash",
+    "label": "Road trash",
+    "severity": "medium",
+    "confidence": 0.9,
+    "latitude": 37.5665,
+    "longitude": 126.978,
+    "road": "Drone road image",
+    "message": "Trash detected on road. Notify road manager and warn nearby drivers.",
+    "detail": "10 colored object candidates found",
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022705-4172",
+    "created_at": "2026-06-09T02:27:05+00:00",
+    "drone_id": "upload-drone-01",
+    "type": "road_crack",
+    "label": "Road crack",
+    "severity": "high",
+    "confidence": 0.95,
+    "latitude": 37.5665,
+    "longitude": 126.978,
+    "road": "Drone road image",
+    "message": "Road crack detected. Notify maintenance team and mark route as dangerous.",
+    "detail": "0 long edge patterns and 13 line segments found",
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022705-9830",
+    "created_at": "2026-06-09T02:27:05+00:00",
+    "drone_id": "upload-drone-01",
+    "type": "trash",
+    "label": "Road trash",
+    "severity": "medium",
+    "confidence": 0.9,
+    "latitude": 37.5665,
+    "longitude": 126.978,
+    "road": "Drone road image",
+    "message": "Trash detected on road. Notify road manager and warn nearby drivers.",
+    "detail": "10 colored object candidates found",
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022706-8354",
+    "created_at": "2026-06-09T02:27:06+00:00",
+    "drone_id": "upload-drone-01",
+    "type": "road_crack",
+    "label": "Road crack",
+    "severity": "high",
+    "confidence": 0.95,
+    "latitude": 37.5665,
+    "longitude": 126.978,
+    "road": "Drone road image",
+    "message": "Road crack detected. Notify maintenance team and mark route as dangerous.",
+    "detail": "0 long edge patterns and 13 line segments found",
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022706-7359",
+    "created_at": "2026-06-09T02:27:06+00:00",
+    "drone_id": "upload-drone-01",
+    "type": "trash",
+    "label": "Road trash",
+    "severity": "medium",
+    "confidence": 0.9,
+    "latitude": 37.5665,
+    "longitude": 126.978,
+    "road": "Drone road image",
+    "message": "Trash detected on road. Notify road manager and warn nearby drivers.",
+    "detail": "10 colored object candidates found",
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022714-8432",
+    "created_at": "2026-06-09T02:27:14+00:00",
+    "drone_id": "upload-drone-01",
+    "type": "road_crack",
+    "label": "Road crack",
+    "severity": "high",
+    "confidence": 0.95,
+    "latitude": 37.5665,
+    "longitude": 126.978,
+    "road": "Drone road image",
+    "message": "Road crack detected. Notify maintenance team and mark route as dangerous.",
+    "detail": "0 long edge patterns and 13 line segments found",
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022714-6766",
+    "created_at": "2026-06-09T02:27:14+00:00",
+    "drone_id": "upload-drone-01",
+    "type": "trash",
+    "label": "Road trash",
+    "severity": "medium",
+    "confidence": 0.9,
+    "latitude": 37.5665,
+    "longitude": 126.978,
+    "road": "Drone road image",
+    "message": "Trash detected on road. Notify road manager and warn nearby drivers.",
+    "detail": "10 colored object candidates found",
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022715-2291",
+    "created_at": "2026-06-09T02:27:15+00:00",
+    "drone_id": "upload-drone-01",
+    "type": "road_crack",
+    "label": "Road crack",
+    "severity": "high",
+    "confidence": 0.95,
+    "latitude": 37.5665,
+    "longitude": 126.978,
+    "road": "Drone road image",
+    "message": "Road crack detected. Notify maintenance team and mark route as dangerous.",
+    "detail": "0 long edge patterns and 13 line segments found",
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022715-3571",
+    "created_at": "2026-06-09T02:27:15+00:00",
+    "drone_id": "upload-drone-01",
+    "type": "trash",
+    "label": "Road trash",
+    "severity": "medium",
+    "confidence": 0.9,
+    "latitude": 37.5665,
+    "longitude": 126.978,
+    "road": "Drone road image",
+    "message": "Trash detected on road. Notify road manager and warn nearby drivers.",
+    "detail": "10 colored object candidates found",
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022716-5416",
+    "created_at": "2026-06-09T02:27:16+00:00",
+    "drone_id": "upload-drone-01",
+    "type": "road_crack",
+    "label": "Road crack",
+    "severity": "high",
+    "confidence": 0.95,
+    "latitude": 37.5665,
+    "longitude": 126.978,
+    "road": "Drone road image",
+    "message": "Road crack detected. Notify maintenance team and mark route as dangerous.",
+    "detail": "0 long edge patterns and 13 line segments found",
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022716-2087",
+    "created_at": "2026-06-09T02:27:16+00:00",
+    "drone_id": "upload-drone-01",
+    "type": "trash",
+    "label": "Road trash",
+    "severity": "medium",
+    "confidence": 0.9,
+    "latitude": 37.5665,
+    "longitude": 126.978,
+    "road": "Drone road image",
+    "message": "Trash detected on road. Notify road manager and warn nearby drivers.",
+    "detail": "10 colored object candidates found",
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022716-4788",
+    "created_at": "2026-06-09T02:27:16+00:00",
+    "drone_id": "upload-drone-01",
+    "type": "road_crack",
+    "label": "Road crack",
+    "severity": "high",
+    "confidence": 0.95,
+    "latitude": 37.5665,
+    "longitude": 126.978,
+    "road": "Drone road image",
+    "message": "Road crack detected. Notify maintenance team and mark route as dangerous.",
+    "detail": "0 long edge patterns and 13 line segments found",
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022716-2566",
+    "created_at": "2026-06-09T02:27:16+00:00",
+    "drone_id": "upload-drone-01",
+    "type": "trash",
+    "label": "Road trash",
+    "severity": "medium",
+    "confidence": 0.9,
+    "latitude": 37.5665,
+    "longitude": 126.978,
+    "road": "Drone road image",
+    "message": "Trash detected on road. Notify road manager and warn nearby drivers.",
+    "detail": "10 colored object candidates found",
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022717-3410",
+    "created_at": "2026-06-09T02:27:17+00:00",
+    "drone_id": "upload-drone-01",
+    "type": "road_crack",
+    "label": "Road crack",
+    "severity": "high",
+    "confidence": 0.95,
+    "latitude": 37.5665,
+    "longitude": 126.978,
+    "road": "Drone road image",
+    "message": "Road crack detected. Notify maintenance team and mark route as dangerous.",
+    "detail": "0 long edge patterns and 13 line segments found",
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022717-5145",
+    "created_at": "2026-06-09T02:27:17+00:00",
+    "drone_id": "upload-drone-01",
+    "type": "trash",
+    "label": "Road trash",
+    "severity": "medium",
+    "confidence": 0.9,
+    "latitude": 37.5665,
+    "longitude": 126.978,
+    "road": "Drone road image",
+    "message": "Trash detected on road. Notify road manager and warn nearby drivers.",
+    "detail": "10 colored object candidates found",
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022717-3937",
+    "created_at": "2026-06-09T02:27:17+00:00",
+    "drone_id": "upload-drone-01",
+    "type": "road_crack",
+    "label": "Road crack",
+    "severity": "high",
+    "confidence": 0.95,
+    "latitude": 37.5665,
+    "longitude": 126.978,
+    "road": "Drone road image",
+    "message": "Road crack detected. Notify maintenance team and mark route as dangerous.",
+    "detail": "0 long edge patterns and 13 line segments found",
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022717-2250",
+    "created_at": "2026-06-09T02:27:17+00:00",
+    "drone_id": "upload-drone-01",
+    "type": "trash",
+    "label": "Road trash",
+    "severity": "medium",
+    "confidence": 0.9,
+    "latitude": 37.5665,
+    "longitude": 126.978,
+    "road": "Drone road image",
+    "message": "Trash detected on road. Notify road manager and warn nearby drivers.",
+    "detail": "10 colored object candidates found",
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022717-4433",
+    "created_at": "2026-06-09T02:27:17+00:00",
+    "drone_id": "upload-drone-01",
+    "type": "road_crack",
+    "label": "Road crack",
+    "severity": "high",
+    "confidence": 0.95,
+    "latitude": 37.5665,
+    "longitude": 126.978,
+    "road": "Drone road image",
+    "message": "Road crack detected. Notify maintenance team and mark route as dangerous.",
+    "detail": "0 long edge patterns and 13 line segments found",
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022717-8527",
+    "created_at": "2026-06-09T02:27:17+00:00",
+    "drone_id": "upload-drone-01",
+    "type": "trash",
+    "label": "Road trash",
+    "severity": "medium",
+    "confidence": 0.9,
+    "latitude": 37.5665,
+    "longitude": 126.978,
+    "road": "Drone road image",
+    "message": "Trash detected on road. Notify road manager and warn nearby drivers.",
+    "detail": "10 colored object candidates found",
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022717-1720",
+    "created_at": "2026-06-09T02:27:17+00:00",
+    "drone_id": "upload-drone-01",
+    "type": "road_crack",
+    "label": "Road crack",
+    "severity": "high",
+    "confidence": 0.95,
+    "latitude": 37.5665,
+    "longitude": 126.978,
+    "road": "Drone road image",
+    "message": "Road crack detected. Notify maintenance team and mark route as dangerous.",
+    "detail": "0 long edge patterns and 13 line segments found",
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022717-2177",
+    "created_at": "2026-06-09T02:27:17+00:00",
+    "drone_id": "upload-drone-01",
+    "type": "trash",
+    "label": "Road trash",
+    "severity": "medium",
+    "confidence": 0.9,
+    "latitude": 37.5665,
+    "longitude": 126.978,
+    "road": "Drone road image",
+    "message": "Trash detected on road. Notify road manager and warn nearby drivers.",
+    "detail": "10 colored object candidates found",
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022717-6960",
+    "created_at": "2026-06-09T02:27:17+00:00",
+    "drone_id": "upload-drone-01",
+    "type": "road_crack",
+    "label": "Road crack",
+    "severity": "high",
+    "confidence": 0.95,
+    "latitude": 37.5665,
+    "longitude": 126.978,
+    "road": "Drone road image",
+    "message": "Road crack detected. Notify maintenance team and mark route as dangerous.",
+    "detail": "0 long edge patterns and 13 line segments found",
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022717-7492",
+    "created_at": "2026-06-09T02:27:17+00:00",
+    "drone_id": "upload-drone-01",
+    "type": "trash",
+    "label": "Road trash",
+    "severity": "medium",
+    "confidence": 0.9,
+    "latitude": 37.5665,
+    "longitude": 126.978,
+    "road": "Drone road image",
+    "message": "Trash detected on road. Notify road manager and warn nearby drivers.",
+    "detail": "10 colored object candidates found",
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022717-4687",
+    "created_at": "2026-06-09T02:27:17+00:00",
+    "drone_id": "upload-drone-01",
+    "type": "road_crack",
+    "label": "Road crack",
+    "severity": "high",
+    "confidence": 0.95,
+    "latitude": 37.5665,
+    "longitude": 126.978,
+    "road": "Drone road image",
+    "message": "Road crack detected. Notify maintenance team and mark route as dangerous.",
+    "detail": "0 long edge patterns and 13 line segments found",
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022717-6069",
+    "created_at": "2026-06-09T02:27:17+00:00",
+    "drone_id": "upload-drone-01",
+    "type": "trash",
+    "label": "Road trash",
+    "severity": "medium",
+    "confidence": 0.9,
+    "latitude": 37.5665,
+    "longitude": 126.978,
+    "road": "Drone road image",
+    "message": "Trash detected on road. Notify road manager and warn nearby drivers.",
+    "detail": "10 colored object candidates found",
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022717-5700",
+    "created_at": "2026-06-09T02:27:17+00:00",
+    "drone_id": "upload-drone-01",
+    "type": "road_crack",
+    "label": "Road crack",
+    "severity": "high",
+    "confidence": 0.95,
+    "latitude": 37.5665,
+    "longitude": 126.978,
+    "road": "Drone road image",
+    "message": "Road crack detected. Notify maintenance team and mark route as dangerous.",
+    "detail": "0 long edge patterns and 13 line segments found",
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022717-4747",
+    "created_at": "2026-06-09T02:27:17+00:00",
+    "drone_id": "upload-drone-01",
+    "type": "trash",
+    "label": "Road trash",
+    "severity": "medium",
+    "confidence": 0.9,
+    "latitude": 37.5665,
+    "longitude": 126.978,
+    "road": "Drone road image",
+    "message": "Trash detected on road. Notify road manager and warn nearby drivers.",
+    "detail": "10 colored object candidates found",
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022718-3912",
+    "created_at": "2026-06-09T02:27:18+00:00",
+    "drone_id": "upload-drone-01",
+    "type": "road_crack",
+    "label": "Road crack",
+    "severity": "high",
+    "confidence": 0.95,
+    "latitude": 37.5665,
+    "longitude": 126.978,
+    "road": "Drone road image",
+    "message": "Road crack detected. Notify maintenance team and mark route as dangerous.",
+    "detail": "0 long edge patterns and 13 line segments found",
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022718-1268",
+    "created_at": "2026-06-09T02:27:18+00:00",
+    "drone_id": "upload-drone-01",
+    "type": "trash",
+    "label": "Road trash",
+    "severity": "medium",
+    "confidence": 0.9,
+    "latitude": 37.5665,
+    "longitude": 126.978,
+    "road": "Drone road image",
+    "message": "Trash detected on road. Notify road manager and warn nearby drivers.",
+    "detail": "10 colored object candidates found",
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022722-8413",
+    "created_at": "2026-06-09T02:27:22+00:00",
+    "drone_id": "upload-drone-01",
+    "type": "road_crack",
+    "label": "Road crack",
+    "severity": "high",
+    "confidence": 0.95,
+    "latitude": 37.5665,
+    "longitude": 126.978,
+    "road": "Drone road image",
+    "message": "Road crack detected. Notify maintenance team and mark route as dangerous.",
+    "detail": "0 long edge patterns and 13 line segments found",
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022722-4158",
+    "created_at": "2026-06-09T02:27:22+00:00",
+    "drone_id": "upload-drone-01",
+    "type": "trash",
+    "label": "Road trash",
+    "severity": "medium",
+    "confidence": 0.9,
+    "latitude": 37.5665,
+    "longitude": 126.978,
+    "road": "Drone road image",
+    "message": "Trash detected on road. Notify road manager and warn nearby drivers.",
+    "detail": "10 colored object candidates found",
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022722-5518",
+    "created_at": "2026-06-09T02:27:22+00:00",
+    "drone_id": "upload-drone-01",
+    "type": "road_crack",
+    "label": "Road crack",
+    "severity": "high",
+    "confidence": 0.95,
+    "latitude": 37.5665,
+    "longitude": 126.978,
+    "road": "Drone road image",
+    "message": "Road crack detected. Notify maintenance team and mark route as dangerous.",
+    "detail": "0 long edge patterns and 13 line segments found",
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022722-6154",
+    "created_at": "2026-06-09T02:27:22+00:00",
+    "drone_id": "upload-drone-01",
+    "type": "trash",
+    "label": "Road trash",
+    "severity": "medium",
+    "confidence": 0.9,
+    "latitude": 37.5665,
+    "longitude": 126.978,
+    "road": "Drone road image",
+    "message": "Trash detected on road. Notify road manager and warn nearby drivers.",
+    "detail": "10 colored object candidates found",
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022722-2079",
+    "created_at": "2026-06-09T02:27:22+00:00",
+    "drone_id": "upload-drone-01",
+    "type": "road_crack",
+    "label": "Road crack",
+    "severity": "high",
+    "confidence": 0.95,
+    "latitude": 37.5665,
+    "longitude": 126.978,
+    "road": "Drone road image",
+    "message": "Road crack detected. Notify maintenance team and mark route as dangerous.",
+    "detail": "0 long edge patterns and 13 line segments found",
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022722-9219",
+    "created_at": "2026-06-09T02:27:22+00:00",
+    "drone_id": "upload-drone-01",
+    "type": "trash",
+    "label": "Road trash",
+    "severity": "medium",
+    "confidence": 0.9,
+    "latitude": 37.5665,
+    "longitude": 126.978,
+    "road": "Drone road image",
+    "message": "Trash detected on road. Notify road manager and warn nearby drivers.",
+    "detail": "10 colored object candidates found",
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022723-6290",
+    "created_at": "2026-06-09T02:27:23+00:00",
+    "drone_id": "upload-drone-01",
+    "type": "road_crack",
+    "label": "Road crack",
+    "severity": "high",
+    "confidence": 0.95,
+    "latitude": 37.5665,
+    "longitude": 126.978,
+    "road": "Drone road image",
+    "message": "Road crack detected. Notify maintenance team and mark route as dangerous.",
+    "detail": "0 long edge patterns and 13 line segments found",
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609022723-2744",
+    "created_at": "2026-06-09T02:27:23+00:00",
+    "drone_id": "upload-drone-01",
+    "type": "trash",
+    "label": "Road trash",
+    "severity": "medium",
+    "confidence": 0.9,
+    "latitude": 37.5665,
+    "longitude": 126.978,
+    "road": "Drone road image",
+    "message": "Trash detected on road. Notify road manager and warn nearby drivers.",
+    "detail": "10 colored object candidates found",
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609023916-3943",
+    "created_at": "2026-06-09T02:39:16+00:00",
+    "drone_id": "sim-drone-01",
+    "type": "roe_deer",
+    "label": "Roe deer",
+    "severity": "high",
+    "confidence": 0.94,
+    "latitude": 35.17696659823541,
+    "longitude": 129.07330367141176,
+    "road": "City Ring Road",
+    "message": "Wild animal near road. Notify police and warn drivers to slow down.",
+    "detail": null,
+    "alert_targets": [
+      "police",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609023917-5373",
+    "created_at": "2026-06-09T02:39:17+00:00",
+    "drone_id": "sim-drone-01",
+    "type": "roe_deer",
+    "label": "Roe deer",
+    "severity": "high",
+    "confidence": 0.96,
+    "latitude": 37.56917090581371,
+    "longitude": 126.96861236723498,
+    "road": "Route 37",
+    "message": "Wild animal near road. Notify police and warn drivers to slow down.",
+    "detail": null,
+    "alert_targets": [
+      "police",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609023928-7675",
+    "created_at": "2026-06-09T02:39:28+00:00",
+    "drone_id": "upload-drone-01",
+    "type": "road_crack",
+    "label": "Road crack",
+    "severity": "high",
+    "confidence": 0.95,
+    "latitude": 37.5665,
+    "longitude": 126.978,
+    "road": "Drone road image",
+    "message": "Road crack detected. Notify maintenance team and mark route as dangerous.",
+    "detail": "0 long edge patterns and 13 line segments found",
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609023928-8166",
+    "created_at": "2026-06-09T02:39:28+00:00",
+    "drone_id": "upload-drone-01",
+    "type": "trash",
+    "label": "Road trash",
+    "severity": "medium",
+    "confidence": 0.9,
+    "latitude": 37.5665,
+    "longitude": 126.978,
+    "road": "Drone road image",
+    "message": "Trash detected on road. Notify road manager and warn nearby drivers.",
+    "detail": "10 colored object candidates found",
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609023928-9614",
+    "created_at": "2026-06-09T02:39:28+00:00",
+    "drone_id": "upload-drone-01",
+    "type": "road_crack",
+    "label": "Road crack",
+    "severity": "high",
+    "confidence": 0.95,
+    "latitude": 37.5665,
+    "longitude": 126.978,
+    "road": "Drone road image",
+    "message": "Road crack detected. Notify maintenance team and mark route as dangerous.",
+    "detail": "0 long edge patterns and 13 line segments found",
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  },
+  {
+    "id": "evt-20260609023928-5265",
+    "created_at": "2026-06-09T02:39:28+00:00",
+    "drone_id": "upload-drone-01",
+    "type": "trash",
+    "label": "Road trash",
+    "severity": "medium",
+    "confidence": 0.9,
+    "latitude": 37.5665,
+    "longitude": 126.978,
+    "road": "Drone road image",
+    "message": "Trash detected on road. Notify road manager and warn nearby drivers.",
+    "detail": "10 colored object candidates found",
+    "alert_targets": [
+      "road_manager",
+      "navigation",
+      "nearby_users"
+    ],
+    "status": "new"
+  }
+]
