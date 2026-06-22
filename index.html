@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Safe Road Detector</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="brand-mark">SR</span>
+        <div>
+          <strong>Safe Road</strong>
+          <span>YOLO pothole detector</span>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Primary">
+        <button class="nav-item active" data-view="detect" title="Detect">◉<span>Detect</span></button>
+        <button class="nav-item" data-view="events" title="Events">⚑<span>Events</span></button>
+        <button class="nav-item" data-view="settings" title="Settings">⚙<span>Settings</span></button>
+      </nav>
+
+      <div class="status-card">
+        <span id="modelLed" class="led loading"></span>
+        <div>
+          <strong id="modelState">Loading model</strong>
+          <span id="modelDetail">pothole-yolov8s.onnx</span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="workspace">
+      <header class="topbar">
+        <div>
+          <h1 id="viewTitle">Live Road Detection</h1>
+          <p id="viewSubtitle">Run local webcam inference with a pretrained YOLOv8 pothole model.</p>
+        </div>
+        <div class="actions">
+          <label class="icon-button" title="Open image or video">
+            <input id="fileInput" type="file" accept="image/*,video/*">
+            <span>⇪</span>
+          </label>
+          <button id="cameraBtn" class="primary">Start Webcam</button>
+        </div>
+      </header>
+
+      <section id="detectView" class="view active">
+        <div class="detect-grid">
+          <section class="video-panel">
+            <div class="panel-head">
+              <div>
+                <h2 id="sourceTitle">Camera Source</h2>
+                <span id="sourceMeta">Waiting for webcam or file</span>
+              </div>
+              <span id="riskBadge" class="badge idle">Idle</span>
+            </div>
+
+            <div class="stage" id="stage">
+              <video id="video" muted playsinline></video>
+              <img id="image" alt="">
+              <canvas id="overlay"></canvas>
+              <div id="emptyState" class="empty-state">
+                <strong>Ready for detection</strong>
+                <span>Start webcam or load a road image/video.</span>
+              </div>
+            </div>
+
+            <div class="control-row">
+              <button id="stopBtn">Stop</button>
+              <button id="snapshotBtn">Snapshot</button>
+              <label>
+                <span>Confidence</span>
+                <input id="confidence" type="range" min="10" max="90" value="35">
+                <strong id="confidenceValue">35%</strong>
+              </label>
+              <label>
+                <span>NMS IoU</span>
+                <input id="iou" type="range" min="20" max="80" value="45">
+                <strong id="iouValue">45%</strong>
+              </label>
+            </div>
+          </section>
+
+          <section class="metric-panel">
+            <article>
+              <span>Current Detections</span>
+              <strong id="currentCount">0</strong>
+            </article>
+            <article>
+              <span>Best Confidence</span>
+              <strong id="bestScore">0%</strong>
+            </article>
+            <article>
+              <span>Inference</span>
+              <strong id="latency">0ms</strong>
+            </article>
+            <article>
+              <span>Events</span>
+              <strong id="eventCount">0</strong>
+            </article>
+          </section>
+
+          <section class="event-panel">
+            <div class="panel-head compact">
+              <h2>Recent Events</h2>
+              <button id="clearEventsBtn">Clear</button>
+            </div>
+            <div id="eventList" class="event-list"></div>
+          </section>
+
+          <section class="model-panel">
+            <div class="panel-head compact">
+              <h2>Model</h2>
+            </div>
+            <dl>
+              <div><dt>Source</dt><dd>peterhdd/pothole-detection-yolov8</dd></div>
+              <div><dt>Runtime</dt><dd>ONNX Runtime Web</dd></div>
+              <div><dt>Class</dt><dd>pothole</dd></div>
+              <div><dt>Input</dt><dd>640 × 640 RGB</dd></div>
+            </dl>
+          </section>
+        </div>
+      </section>
+
+      <section id="eventsView" class="view">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Time</th>
+                <th>Source</th>
+                <th>Class</th>
+                <th>Confidence</th>
+                <th>Box</th>
+              </tr>
+            </thead>
+            <tbody id="eventTable"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="settingsView" class="view">
+        <form class="settings-form">
+          <label>
+            <span>Frame Skip</span>
+            <select id="frameSkip">
+              <option value="1">Every frame</option>
+              <option value="2" selected>Every 2 frames</option>
+              <option value="4">Every 4 frames</option>
+            </select>
+          </label>
+          <label>
+            <span>Log Event Cooldown</span>
+            <select id="eventCooldown">
+              <option value="1000">1 second</option>
+              <option value="2500" selected>2.5 seconds</option>
+              <option value="5000">5 seconds</option>
+            </select>
+          </label>
+          <label>
+            <span>Model Path</span>
+              <input id="modelPath" value="server.py / models/pothole-yolov8s.onnx" disabled>
+          </label>
+          <button id="reloadModelBtn" type="button">Reload Model</button>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
