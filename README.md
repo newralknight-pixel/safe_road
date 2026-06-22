@@ -33,6 +33,12 @@ http://localhost:8000
 
 Use **Start Webcam** for live camera detection, or use the upload button to test an image/video.
 
+On Windows, you can also double-click:
+
+```text
+start_safe_road.bat
+```
+
 ## GitHub
 
 The target repository is currently empty:
