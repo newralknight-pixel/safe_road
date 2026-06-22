@@ -117,6 +117,14 @@ button.secondary {
   margin-bottom: 22px;
 }
 
+.webcam-panel {
+  margin-bottom: 22px;
+}
+
+.map-panel {
+  margin-bottom: 22px;
+}
+
 .panel-heading {
   display: flex;
   align-items: baseline;
@@ -141,6 +149,117 @@ button.secondary {
   display: grid;
   gap: 12px;
   padding-top: 16px;
+}
+
+.map-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(220px, 0.8fr);
+  gap: 16px;
+  padding-top: 16px;
+}
+
+.map-canvas {
+  position: relative;
+  min-height: 320px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background:
+    linear-gradient(90deg, rgba(29, 127, 95, 0.08) 1px, transparent 1px),
+    linear-gradient(rgba(29, 127, 95, 0.08) 1px, transparent 1px),
+    #eef5f1;
+  background-size: 42px 42px;
+}
+
+.map-canvas::before,
+.map-canvas::after {
+  position: absolute;
+  content: "";
+  border-radius: 999px;
+  background: rgba(29, 127, 95, 0.16);
+}
+
+.map-canvas::before {
+  width: 52%;
+  height: 18px;
+  left: -6%;
+  top: 44%;
+  transform: rotate(16deg);
+}
+
+.map-canvas::after {
+  width: 18px;
+  height: 72%;
+  right: 26%;
+  top: 10%;
+  transform: rotate(8deg);
+}
+
+.map-marker {
+  position: absolute;
+  z-index: 1;
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  transform: translate(-50%, -50%);
+  border: 3px solid #ffffff;
+  border-radius: 999px;
+  background: var(--amber);
+  color: white;
+  font-size: 12px;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 8px 18px rgba(23, 32, 38, 0.2);
+}
+
+.map-marker.high {
+  background: var(--red);
+}
+
+.map-marker.medium {
+  background: var(--amber);
+}
+
+.map-list {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  max-height: 320px;
+  overflow: auto;
+}
+
+.map-list-item {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  column-gap: 10px;
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.map-list-item span {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border-radius: 999px;
+  background: #e8eff2;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.map-list-item strong,
+.map-list-item small {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.map-list-item small {
+  grid-column: 2;
+  color: var(--muted);
 }
 
 .event {
@@ -187,6 +306,44 @@ button.secondary {
   padding-top: 16px;
 }
 
+.drop-zone {
+  display: grid;
+  grid-column: 1 / -1;
+  min-height: 118px;
+  place-items: center;
+  align-content: center;
+  gap: 8px;
+  border: 2px dashed #9cb4bf;
+  border-radius: 8px;
+  background: #f7fafb;
+  color: var(--ink);
+  cursor: pointer;
+  text-align: center;
+  transition:
+    background 160ms ease,
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.drop-zone strong {
+  font-size: 18px;
+}
+
+.drop-zone span {
+  max-width: 100%;
+  color: var(--muted);
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.drop-zone.drag-over,
+.drop-zone:focus-visible {
+  border-color: var(--green);
+  background: #eef8f4;
+  box-shadow: 0 0 0 4px rgba(29, 127, 95, 0.14);
+  outline: 0;
+}
+
 .vision-form label {
   display: grid;
   gap: 6px;
@@ -195,14 +352,114 @@ button.secondary {
   font-weight: 700;
 }
 
-.vision-form input {
+.vision-form input,
+.vision-form select {
   width: 100%;
   min-height: 42px;
   border: 1px solid var(--line);
   border-radius: 6px;
+  background: white;
   padding: 8px 10px;
   color: var(--ink);
   font: inherit;
+}
+
+.webcam-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.8fr);
+  gap: 16px;
+  padding-top: 16px;
+}
+
+.webcam-preview {
+  position: relative;
+  display: grid;
+  min-height: 300px;
+  overflow: hidden;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #10171b;
+}
+
+.webcam-preview img,
+.webcam-preview video {
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  object-fit: cover;
+}
+
+.webcam-preview p {
+  position: absolute;
+  inset: auto 20px;
+  margin: 0;
+  color: #dce8ec;
+  font-weight: 700;
+  text-align: center;
+}
+
+.webcam-recognition {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  z-index: 2;
+  min-height: 36px;
+  border-radius: 6px;
+  background: rgba(16, 23, 27, 0.78);
+  color: #ffffff;
+  padding: 10px 12px;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.webcam-form {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+}
+
+.cctv-targets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cctv-targets span {
+  border-radius: 999px;
+  background: #e8eff2;
+  color: #273942;
+  padding: 7px 10px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.webcam-form label {
+  display: grid;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.webcam-form input {
+  width: 100%;
+  min-height: 42px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: white;
+  padding: 8px 10px;
+  color: var(--ink);
+  font: inherit;
+}
+
+.webcam-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .meta,
@@ -232,6 +489,11 @@ button.secondary {
   text-align: right;
 }
 
+.location a {
+  color: var(--green);
+  font-weight: 700;
+}
+
 .empty {
   padding: 28px 0;
   color: var(--muted);
@@ -256,6 +518,18 @@ button.secondary {
 
   .vision-form {
     grid-template-columns: 1fr;
+  }
+
+  .webcam-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .map-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .map-canvas {
+    min-height: 260px;
   }
 
   .location {
