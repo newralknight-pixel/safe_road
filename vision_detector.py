@@ -6,20 +6,39 @@ from typing import List
 
 BASE_DIR = Path(__file__).resolve().parent
 DEFAULT_YOLO_MODEL_PATH = BASE_DIR / "models" / "cctv_best.pt"
+DEFAULT_LITTER_MODEL_PATH = BASE_DIR / "models" / "external" / "litter_yolov8_best.pt"
+DEFAULT_DEER_MODEL_PATH = BASE_DIR / "models" / "external" / "yolov8s-worldv2.pt"
+DEER_WORLD_CLASSES = [
+    "Korean water deer",
+    "water deer",
+    "deer",
+    "wild animal",
+    "animal on road",
+]
 YOLO_CLASS_MAP = {
+    "alligator crack": "road_crack",
     "deer": "roe_deer",
+    "longitudinal crack": "road_crack",
+    "other corruption": "road_crack",
     "roe_deer": "roe_deer",
     "trash": "trash",
     "road_crack": "road_crack",
     "crack": "road_crack",
+    "pothole": "pothole",
+    "transverse crack": "road_crack",
 }
 YOLO_LABELS = {
     "roe_deer": "deer",
     "trash": "trash",
     "road_crack": "crack",
+    "pothole": "pothole",
 }
 YOLO_MODEL = None
 YOLO_MODEL_ERROR = None
+LITTER_MODEL = None
+LITTER_MODEL_ERROR = None
+DEER_MODEL = None
+DEER_MODEL_ERROR = None
 
 
 @dataclass
@@ -83,7 +102,61 @@ def load_yolo_model():
         return None
 
 
-def detect_hazards_with_yolo(image, confidence_threshold=0.25) -> List[dict]:
+def load_litter_model():
+    global LITTER_MODEL, LITTER_MODEL_ERROR
+    if LITTER_MODEL is not None:
+        return LITTER_MODEL
+    if LITTER_MODEL_ERROR is not None:
+        return None
+
+    model_path = Path(os.environ.get("SAFE_ROAD_LITTER_MODEL", DEFAULT_LITTER_MODEL_PATH))
+    if not model_path.exists():
+        LITTER_MODEL_ERROR = f"Litter model not found: {model_path}"
+        return None
+
+    try:
+        from ultralytics import YOLO
+
+        LITTER_MODEL = YOLO(str(model_path))
+        return LITTER_MODEL
+    except Exception as error:
+        LITTER_MODEL_ERROR = f"Could not load litter model: {error}"
+        return None
+
+
+def load_deer_model():
+    global DEER_MODEL, DEER_MODEL_ERROR
+    if DEER_MODEL is not None:
+        return DEER_MODEL
+    if DEER_MODEL_ERROR is not None:
+        return None
+
+    model_path = Path(os.environ.get("SAFE_ROAD_DEER_MODEL", DEFAULT_DEER_MODEL_PATH))
+    if not model_path.exists():
+        DEER_MODEL_ERROR = f"Deer model not found: {model_path}"
+        return None
+
+    try:
+        from ultralytics import YOLOWorld
+
+        DEER_MODEL = YOLOWorld(str(model_path))
+        DEER_MODEL.set_classes(DEER_WORLD_CLASSES)
+        return DEER_MODEL
+    except Exception as error:
+        DEER_MODEL_ERROR = f"Could not load deer model: {error}"
+        return None
+
+
+def trained_model_exists() -> bool:
+    model_paths = [
+        Path(os.environ.get("SAFE_ROAD_YOLO_MODEL", DEFAULT_YOLO_MODEL_PATH)),
+        Path(os.environ.get("SAFE_ROAD_LITTER_MODEL", DEFAULT_LITTER_MODEL_PATH)),
+        Path(os.environ.get("SAFE_ROAD_DEER_MODEL", DEFAULT_DEER_MODEL_PATH)),
+    ]
+    return any(model_path.exists() for model_path in model_paths)
+
+
+def detect_hazards_with_yolo(image, confidence_threshold=0.5) -> List[dict]:
     model = load_yolo_model()
     if model is None:
         return []
@@ -110,6 +183,53 @@ def detect_hazards_with_yolo(image, confidence_threshold=0.25) -> List[dict]:
                 }
             )
     return detections
+
+
+def detect_hazards_with_litter_model(image, confidence_threshold=0.4) -> List[dict]:
+    model = load_litter_model()
+    if model is None:
+        return []
+
+    results = model.predict(image, conf=confidence_threshold, verbose=False)
+    candidates = []
+    for result in results:
+        for box in result.boxes:
+            x1, y1, x2, y2 = [int(value) for value in box.xyxy[0].tolist()]
+            candidates.append(
+                {
+                    "type": "trash",
+                    "confidence": float(box.conf[0]),
+                    "severity": "medium",
+                    "detail": "YOLO litter detection",
+                    "bbox": (x1, y1, x2 - x1, y2 - y1),
+                }
+            )
+    return sorted(candidates, key=lambda detection: detection["confidence"], reverse=True)[:1]
+
+
+def detect_hazards_with_deer_model(image, confidence_threshold=0.2) -> List[dict]:
+    model = load_deer_model()
+    if model is None:
+        return []
+
+    results = model.predict(image, conf=confidence_threshold, verbose=False)
+    candidates = []
+    for result in results:
+        for box in result.boxes:
+            raw_name = str(result.names[int(box.cls[0])])
+            if raw_name not in DEER_WORLD_CLASSES:
+                continue
+            x1, y1, x2, y2 = [int(value) for value in box.xyxy[0].tolist()]
+            candidates.append(
+                {
+                    "type": "roe_deer",
+                    "confidence": float(box.conf[0]),
+                    "severity": "high",
+                    "detail": f"YOLO-World {raw_name} detection",
+                    "bbox": (x1, y1, x2 - x1, y2 - y1),
+                }
+            )
+    return sorted(candidates, key=lambda detection: detection["confidence"], reverse=True)[:1]
 
 
 def decode_image(image_bytes: bytes):
@@ -345,9 +465,12 @@ def capture_webcam_jpeg(camera_index: int = 0) -> bytes:
 
 
 def detect_hazards_from_frame(image) -> List[dict]:
-    yolo_detections = detect_hazards_with_yolo(image)
-    if yolo_detections:
-        return yolo_detections
+    model_detections = []
+    model_detections.extend(detect_hazards_with_yolo(image))
+    model_detections.extend(detect_hazards_with_litter_model(image))
+    model_detections.extend(detect_hazards_with_deer_model(image))
+    if model_detections or trained_model_exists():
+        return model_detections
 
     detections = []
 

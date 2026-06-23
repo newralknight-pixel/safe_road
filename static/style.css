@@ -117,6 +117,32 @@ button.secondary {
   margin-bottom: 22px;
 }
 
+.picoboard-panel {
+  margin-bottom: 22px;
+}
+
+.picoboard-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 16px;
+}
+
+.picoboard-row div {
+  display: grid;
+  gap: 6px;
+}
+
+.picoboard-row strong {
+  font-size: 16px;
+}
+
+.picoboard-row span {
+  color: var(--muted);
+  font-size: 14px;
+}
+
 .webcam-panel {
   margin-bottom: 22px;
 }
@@ -522,6 +548,11 @@ button.secondary {
 
   .webcam-layout {
     grid-template-columns: 1fr;
+  }
+
+  .picoboard-row {
+    align-items: stretch;
+    flex-direction: column;
   }
 
   .map-layout {

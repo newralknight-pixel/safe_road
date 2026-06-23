@@ -16,6 +16,7 @@ from vision_detector import (
     detect_hazards_from_webcam,
     load_cv_tools,
 )
+from picoboard_alert import pico_status, send_picoboard_alert
 
 BASE_DIR = Path(__file__).resolve().parent
 STATIC_DIR = BASE_DIR / "static"
@@ -133,6 +134,7 @@ def append_detections(new_events):
     detections = load_detections()
     detections.extend(new_events)
     save_detections(detections)
+    send_picoboard_alert(new_events)
 
 
 def utc_now():
@@ -527,6 +529,9 @@ class SafeRoadHandler(SimpleHTTPRequestHandler):
         if parsed.path == "/api/vision/webcam/status":
             self.send_json(WEBCAM_MONITOR.copy())
             return
+        if parsed.path == "/api/picoboard/status":
+            self.send_json(pico_status())
+            return
         if parsed.path == "/api/vision/webcam/frame.jpg":
             with WEBCAM_FRAME_LOCK:
                 image_bytes = WEBCAM_LATEST_JPEG
@@ -544,7 +549,23 @@ class SafeRoadHandler(SimpleHTTPRequestHandler):
             detections = load_detections()
             detections.append(event)
             save_detections(detections)
+            send_picoboard_alert([event])
             self.send_json({"event": event}, status=201)
+            return
+
+        if parsed.path == "/api/picoboard/test":
+            test_event = build_event(
+                drone_id="picoboard-test",
+                hazard_type="trash",
+                latitude=37.5665,
+                longitude=126.9780,
+                confidence=0.99,
+                severity="medium",
+                road="PicoBoard demo",
+                detail="Manual PicoBoard sound test",
+            )
+            sent = send_picoboard_alert([test_event])
+            self.send_json({"sent": sent, "status": pico_status()}, status=200 if sent else 503)
             return
 
         if parsed.path == "/api/drone/frame":
@@ -574,6 +595,7 @@ class SafeRoadHandler(SimpleHTTPRequestHandler):
                 detections = load_detections()
                 detections.extend(new_events)
                 save_detections(detections)
+                send_picoboard_alert(new_events)
                 self.send_json({"accepted": len(new_events), "events": new_events}, status=201)
             except (KeyError, json.JSONDecodeError, ValueError) as error:
                 self.send_json({"error": str(error)}, status=400)
@@ -616,9 +638,7 @@ class SafeRoadHandler(SimpleHTTPRequestHandler):
                     for detection in vision_detections
                 ]
 
-                detections = load_detections()
-                detections.extend(new_events)
-                save_detections(detections)
+                append_detections(new_events)
                 self.send_json(
                     {
                         "accepted": len(new_events),

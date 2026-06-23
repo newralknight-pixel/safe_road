@@ -34,6 +34,20 @@
         </article>
       </section>
 
+      <section class="panel picoboard-panel">
+        <div class="panel-heading">
+          <h2>PicoBoard Sound Alert</h2>
+          <p id="picoboardStatus">Checking board...</p>
+        </div>
+        <div class="picoboard-row">
+          <div>
+            <strong id="picoboardPort">Port not configured</strong>
+            <span id="picoboardDetail">Connect PicoBoard and set SAFE_ROAD_PICO_PORT.</span>
+          </div>
+          <button id="picoboardTestBtn" type="button" class="secondary">Test Sound</button>
+        </div>
+      </section>
+
       <section class="panel vision-panel">
         <div class="panel-heading">
           <h2>OpenCV Media Detection</h2>
@@ -137,6 +151,6 @@
       </section>
     </main>
 
-    <script src="/static/app.js"></script>
+    <script src="/static/app.js?v=picoboard-demo"></script>
   </body>
 </html>

@@ -26,6 +26,10 @@ const startWebcamBtn = document.querySelector("#startWebcamBtn");
 const captureWebcamBtn = document.querySelector("#captureWebcamBtn");
 const serverWebcamBtn = document.querySelector("#serverWebcamBtn");
 const stopWebcamBtn = document.querySelector("#stopWebcamBtn");
+const picoboardStatus = document.querySelector("#picoboardStatus");
+const picoboardPort = document.querySelector("#picoboardPort");
+const picoboardDetail = document.querySelector("#picoboardDetail");
+const picoboardTestBtn = document.querySelector("#picoboardTestBtn");
 let webcamStream = null;
 let connectedCameraBusy = false;
 const PREVIEW_REFRESH_MS = 1000;
@@ -305,6 +309,49 @@ async function loadWebcamStatus() {
   }
 }
 
+function renderPicoboardStatus(status) {
+  const configured = status.configured_port || "";
+  const availablePorts = status.ports?.map((port) => port.device).join(", ") || "none";
+  picoboardPort.textContent = configured ? `Configured: ${configured}` : "Port not configured";
+  picoboardStatus.textContent = status.last_alert?.ok ? "Last signal sent" : "Ready for setup";
+  if (!status.pyserial_available) {
+    picoboardDetail.textContent = "pyserial is missing. Install requirements before the demo.";
+  } else if (!configured) {
+    picoboardDetail.textContent = `Available ports: ${availablePorts}. Set SAFE_ROAD_PICO_PORT=COMx.`;
+  } else {
+    picoboardDetail.textContent = status.last_alert?.message || `Available ports: ${availablePorts}`;
+  }
+}
+
+async function loadPicoboardStatus() {
+  try {
+    const response = await fetch("/api/picoboard/status");
+    const status = await response.json();
+    renderPicoboardStatus(status);
+  } catch (error) {
+    picoboardStatus.textContent = "Board status unavailable";
+    picoboardDetail.textContent = error.message;
+  }
+}
+
+async function testPicoboardSound() {
+  picoboardTestBtn.disabled = true;
+  picoboardStatus.textContent = "Sending test signal...";
+  try {
+    const response = await fetch("/api/picoboard/test", { method: "POST" });
+    const payload = await response.json();
+    renderPicoboardStatus(payload.status);
+    if (!response.ok) {
+      picoboardStatus.textContent = "Test signal failed";
+    }
+  } catch (error) {
+    picoboardStatus.textContent = "Test signal failed";
+    picoboardDetail.textContent = error.message;
+  } finally {
+    picoboardTestBtn.disabled = false;
+  }
+}
+
 function refreshWebcamPreview() {
   const cameraIndex = Number(webcamCameraIndex.value || 0);
   webcamPreview.src = `/api/vision/webcam/frame.jpg?camera_index=${cameraIndex}&t=${Date.now()}`;
@@ -325,6 +372,7 @@ startWebcamBtn.addEventListener("click", startWebcam);
 captureWebcamBtn.addEventListener("click", analyzeWebcamFrame);
 serverWebcamBtn.addEventListener("click", analyzeConnectedCamera);
 stopWebcamBtn.addEventListener("click", stopWebcam);
+picoboardTestBtn.addEventListener("click", testPicoboardSound);
 dropZone.addEventListener("click", () => mediaInput.click());
 dropZone.addEventListener("keydown", (event) => {
   if (event.key === "Enter" || event.key === " ") {
@@ -370,5 +418,7 @@ loadEvents();
 setInterval(loadEvents, 10000);
 loadWebcamStatus();
 setInterval(loadWebcamStatus, 10000);
+loadPicoboardStatus();
+setInterval(loadPicoboardStatus, 10000);
 refreshWebcamPreview();
 setInterval(refreshWebcamPreview, PREVIEW_REFRESH_MS);
