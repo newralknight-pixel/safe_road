@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import base64
+import ipaddress
+import socket
 import time
 from pathlib import Path
 
@@ -48,13 +50,14 @@ MODEL_CONFIGS = [
         "name": "wildlife-north-american-yolo26s.onnx",
         "path": ROOT / "models" / "wildlife-north-american-yolo26s.onnx",
         "class_names": WILDLIFE_CLASS_NAMES,
-        "target_class_ids": {4, 5, 9},
+        "target_class_ids": set(range(len(WILDLIFE_CLASS_NAMES))),
     },
     {
         "name": "trash-detection-yolo11n.onnx",
         "path": ROOT / "models" / "trash-detection-yolo11n.onnx",
         "class_names": TRASH_CLASS_NAMES,
         "target_class_ids": {0, 1, 2, 3},
+        "min_conf_by_class_id": {1: 0.70},
     },
     {
         "name": "pothole-yolov8s.onnx",
@@ -148,9 +151,11 @@ def decode(
     iou_threshold: float,
     class_names: list[str],
     target_class_ids: set[int],
+    min_conf_by_class_id: dict[int, float] | None = None,
 ) -> list[dict]:
     rows = rows_from_output(output)
     boxes: list[dict] = []
+    min_conf_by_class_id = min_conf_by_class_id or {}
 
     for row in rows:
         if row.shape[0] < 5:
@@ -160,7 +165,8 @@ def decode(
             x1, y1, x2, y2 = map(float, row[:4])
             score = float(row[4])
             class_id = int(row[5])
-            if score < conf or class_id not in target_class_ids:
+            class_conf = max(conf, min_conf_by_class_id.get(class_id, conf))
+            if score < class_conf or class_id not in target_class_ids:
                 continue
 
             x1 = (x1 - meta["pad_x"]) / meta["scale"]
@@ -170,7 +176,8 @@ def decode(
         elif row.shape[0] == 5:
             class_id = 0
             score = float(row[4])
-            if score < conf or class_id not in target_class_ids:
+            class_conf = max(conf, min_conf_by_class_id.get(class_id, conf))
+            if score < class_conf or class_id not in target_class_ids:
                 continue
 
             cx, cy, width, height = map(float, row[:4])
@@ -182,7 +189,8 @@ def decode(
             scores = row[4:]
             class_id = int(np.argmax(scores))
             score = float(scores[class_id])
-            if score < conf or class_id not in target_class_ids:
+            class_conf = max(conf, min_conf_by_class_id.get(class_id, conf))
+            if score < class_conf or class_id not in target_class_ids:
                 continue
 
             cx, cy, width, height = map(float, row[:4])
@@ -252,10 +260,22 @@ def health():
     )
 
 
+@app.get("/network")
+def network():
+    return jsonify(
+        {
+            "host": "0.0.0.0",
+            "port": 8000,
+            "localUrl": "http://127.0.0.1:8000",
+            "phoneUrl": f"http://{get_lan_ip()}:8000",
+        }
+    )
+
+
 @app.post("/detect")
 def detect():
     started = time.perf_counter()
-    conf = float(request.form.get("confidence", request.args.get("confidence", 0.35)))
+    conf = float(request.form.get("confidence", request.args.get("confidence", 0.45)))
     iou_threshold = float(request.form.get("iou", request.args.get("iou", 0.45)))
     image = read_image()
     tensor, meta = preprocess(image)
@@ -270,6 +290,7 @@ def detect():
                 iou_threshold,
                 detector["class_names"],
                 detector["target_class_ids"],
+                detector.get("min_conf_by_class_id"),
             )
         )
     detections = sorted(detections, key=lambda item: item["score"], reverse=True)[:20]
@@ -283,5 +304,29 @@ def detect():
     )
 
 
+def get_lan_ip() -> str:
+    hostnames = {socket.gethostname(), socket.getfqdn()}
+    for hostname in hostnames:
+        try:
+            addresses = socket.getaddrinfo(hostname, None, socket.AF_INET)
+        except OSError:
+            continue
+        for address in addresses:
+            ip = address[4][0]
+            parsed = ipaddress.ip_address(ip)
+            if parsed.is_private and not parsed.is_loopback:
+                return ip
+
+    try:
+        with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as probe:
+            probe.connect(("8.8.8.8", 80))
+            return probe.getsockname()[0]
+    except OSError:
+        return socket.gethostbyname(socket.gethostname())
+
+
 if __name__ == "__main__":
-    app.run(host="127.0.0.1", port=8000, debug=False)
+    phone_url = f"http://{get_lan_ip()}:8000"
+    print(f"Local browser: http://127.0.0.1:8000")
+    print(f"Phone on same Wi-Fi: {phone_url}")
+    app.run(host="0.0.0.0", port=8000, debug=False)

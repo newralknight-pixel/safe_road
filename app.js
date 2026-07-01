@@ -41,6 +41,7 @@ const els = {
   frameSkip: document.querySelector("#frameSkip"),
   eventCooldown: document.querySelector("#eventCooldown"),
   reloadModelBtn: document.querySelector("#reloadModelBtn"),
+  phoneUrl: document.querySelector("#phoneUrl"),
 };
 
 const captureCanvas = document.createElement("canvas");
@@ -101,6 +102,14 @@ async function checkBackend() {
   setModelStatus("ready", "Backend ready", `${state.health.model} · ${state.health.provider}`);
 }
 
+async function checkNetwork() {
+  if (!els.phoneUrl) return;
+  const response = await fetch("/network", { cache: "no-store" });
+  if (!response.ok) throw new Error(`Network endpoint returned ${response.status}`);
+  const network = await response.json();
+  els.phoneUrl.textContent = network.phoneUrl;
+}
+
 function setView(name) {
   document.querySelectorAll(".view").forEach((view) => view.classList.remove("active"));
   document.querySelector(`#${name}View`).classList.add("active");
@@ -108,7 +117,7 @@ function setView(name) {
     item.classList.toggle("active", item.dataset.view === name);
   });
   const titles = {
-    detect: ["Live Road Watch", "Run local webcam inference for deer-like wildlife, roadside trash, and potholes."],
+    detect: ["Live Road Watch", "Run local webcam inference for wildlife, roadside trash, and potholes."],
     events: ["Detection Events", "Logged wildlife, trash, and pothole detections from webcam, images, and videos."],
     settings: ["Detector Settings", "Adjust thresholds, logging, and backend model path."],
   };
@@ -414,3 +423,6 @@ renderEvents();
 resizeOverlay();
 refreshCameraList().catch((error) => console.warn(error));
 checkBackend().catch((error) => setModelStatus("error", "Backend offline", error.message));
+checkNetwork().catch((error) => {
+  if (els.phoneUrl) els.phoneUrl.textContent = error.message;
+});

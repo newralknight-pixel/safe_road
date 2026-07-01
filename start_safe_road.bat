@@ -9,4 +9,5 @@ if not exist ".venv\Scripts\python.exe" (
 )
 echo Starting Safe Road Detector...
 echo Open http://127.0.0.1:8000 in your browser.
+echo For a phone on the same Wi-Fi, use the Phone URL printed by server.py.
 ".venv\Scripts\python.exe" server.py

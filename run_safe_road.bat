@@ -21,5 +21,6 @@ if errorlevel 1 (
 
 echo Starting Safe Road...
 echo Open http://127.0.0.1:8000 in Chrome or Edge.
+echo For a phone on the same Wi-Fi, use the Phone URL printed by server.py.
 ".venv\Scripts\python.exe" server.py
 pause

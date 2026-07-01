@@ -41,7 +41,8 @@ button {
 }
 
 button:hover,
-.icon-button:hover {
+.icon-button:hover,
+.upload-button:hover {
   border-color: #98a2b3;
   background: #f8fafc;
 }
@@ -203,10 +204,10 @@ dt {
   background: var(--surface);
 }
 
-.icon-button {
+.icon-button,
+.upload-button {
   display: grid;
   place-items: center;
-  width: 42px;
   min-height: 40px;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -214,7 +215,18 @@ dt {
   cursor: pointer;
 }
 
-.icon-button input {
+.icon-button {
+  width: 42px;
+}
+
+.upload-button {
+  min-width: 144px;
+  padding: 0 14px;
+  font-weight: 700;
+}
+
+.icon-button input,
+.upload-button input {
   position: absolute;
   width: 1px;
   height: 1px;

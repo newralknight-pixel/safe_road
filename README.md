@@ -10,7 +10,7 @@ The app uses three ONNX models:
 - `models/trash-detection-yolo11n.onnx`, exported from https://huggingface.co/Alope/trash-detection-yolo11n
 - `models/pothole-yolov8s.onnx`, an Ultralytics YOLOv8s pothole detector already included in this project
 
-The app filters wildlife output to deer-like classes: `Mule Deer`, `Elk / Wapiti`, and `Moose`. It also detects trash classes: `glass`, `paper`, `plastic`, and `trash`, plus `pothole`.
+The app reports all 26 wildlife classes from the wildlife model. It also detects trash classes: `glass`, `paper`, `plastic`, and `trash`, plus `pothole`.
 
 ## Run
 
@@ -34,6 +34,18 @@ http://localhost:8000
 ```
 
 Use **Start Webcam** for live camera detection, or use the upload button to test an image/video.
+
+## Cellphone video upload
+
+Start the server on the computer, then open the phone URL printed in the server window. It looks like:
+
+```text
+http://192.168.x.x:8000
+```
+
+The phone and computer must be on the same Wi-Fi network. On the phone, use **Record / Upload** to record or select a video. The browser plays the video locally and sends frames to the computer server for detection.
+
+Note: live **Start Webcam** access from a phone may be blocked on plain HTTP. Use **Record / Upload** for the reliable phone workflow, or use the public tunnel option below for HTTPS camera access.
 
 On Windows, you can also double-click:
 
