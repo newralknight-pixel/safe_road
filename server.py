@@ -51,19 +51,23 @@ MODEL_CONFIGS = [
         "path": ROOT / "models" / "wildlife-north-american-yolo26s.onnx",
         "class_names": WILDLIFE_CLASS_NAMES,
         "target_class_ids": set(range(len(WILDLIFE_CLASS_NAMES))),
+        "min_conf_by_class_id": {class_id: 0.65 for class_id in range(len(WILDLIFE_CLASS_NAMES))},
     },
     {
         "name": "trash-detection-yolo11n.onnx",
         "path": ROOT / "models" / "trash-detection-yolo11n.onnx",
         "class_names": TRASH_CLASS_NAMES,
-        "target_class_ids": {0, 1, 2, 3},
-        "min_conf_by_class_id": {1: 0.70},
+        "target_class_ids": {0, 2, 3},
+        "min_conf_by_class_id": {0: 0.80, 2: 0.80, 3: 0.85},
+        "min_center_y_ratio": 0.45,
     },
     {
         "name": "pothole-yolov8s.onnx",
         "path": ROOT / "models" / "pothole-yolov8s.onnx",
         "class_names": POTHOLE_CLASS_NAMES,
         "target_class_ids": {0},
+        "min_conf_by_class_id": {0: 0.60},
+        "min_center_y_ratio": 0.45,
     },
 ]
 
@@ -152,6 +156,7 @@ def decode(
     class_names: list[str],
     target_class_ids: set[int],
     min_conf_by_class_id: dict[int, float] | None = None,
+    min_center_y_ratio: float | None = None,
 ) -> list[dict]:
     rows = rows_from_output(output)
     boxes: list[dict] = []
@@ -203,6 +208,11 @@ def decode(
         y1 = max(0.0, min(float(meta["height"]), y1))
         x2 = max(0.0, min(float(meta["width"]), x2))
         y2 = max(0.0, min(float(meta["height"]), y2))
+
+        if min_center_y_ratio is not None:
+            center_y_ratio = ((y1 + y2) / 2) / max(float(meta["height"]), 1.0)
+            if center_y_ratio < min_center_y_ratio:
+                continue
 
         boxes.append(
             {
@@ -291,6 +301,7 @@ def detect():
                 detector["class_names"],
                 detector["target_class_ids"],
                 detector.get("min_conf_by_class_id"),
+                detector.get("min_center_y_ratio"),
             )
         )
     detections = sorted(detections, key=lambda item: item["score"], reverse=True)[:20]

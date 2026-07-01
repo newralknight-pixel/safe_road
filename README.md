@@ -10,7 +10,7 @@ The app uses three ONNX models:
 - `models/trash-detection-yolo11n.onnx`, exported from https://huggingface.co/Alope/trash-detection-yolo11n
 - `models/pothole-yolov8s.onnx`, an Ultralytics YOLOv8s pothole detector already included in this project
 
-The app reports all 26 wildlife classes from the wildlife model. It also detects trash classes: `glass`, `paper`, `plastic`, and `trash`, plus `pothole`.
+The app reports all 26 wildlife classes from the wildlife model. It also detects stricter road-zone trash classes: `glass`, `plastic`, and `trash`, plus `pothole`. The noisy `paper` class is disabled by default.
 
 ## Run
 
